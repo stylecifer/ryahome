@@ -67,13 +67,11 @@ if(get_post_meta(get_the_ID(), "qode_content-animation", true) != ""){
 							<div class="container">
 								<div class="container_inner clearfix">
 							<?php } ?>
-							<h1>
-								<?php if(get_post_meta(get_the_ID(), "qode_page-title-text", true)){ ?>
-									<?php the_title(); ?>
-								<?php } else { ?>
-									<?php _e('BLOG','qode'); ?>
-								<?php } ?>
-							</h1>
+							<!--ANTONIO-->
+								<?php if(!get_post_meta(get_the_ID(), "qode_page-title-text", true)){ ?>
+									 <h1><?php the_title(); ?></h1>
+									 <?php } ?>
+							
 							<?php if($title_in_grid){ ?>
 								</div>
 							</div>
@@ -110,12 +108,7 @@ if(get_post_meta(get_the_ID(), "qode_content-animation", true) != ""){
 									<?php }
 									}
 								?>
-								<div class="blog_title_holder">
-									 <?php if(!get_post_meta(get_the_ID(), "qode_page-title-text", true)){ ?>
-									 <h2><?php the_title(); ?></h2>
-									 <?php } ?>
-									 <span><?php the_time('d M Y'); ?>, <?php _e('by','qode'); ?> <span class="blog_author"><?php the_author(); ?></span> <?php _e('in','qode'); ?> <span class="category"><?php the_category(', '); ?></span></span>
-								</div>
+								
 								<div class="blog_single_text_holder">
 									<div class="text">
 										<?php the_content(); ?>
@@ -130,13 +123,7 @@ if(get_post_meta(get_the_ID(), "qode_content-animation", true) != ""){
 								</div>
 							</article>
 						</div>
-						<?php
-							if($blog_hide_comments != "yes"){
-								comments_template('', true); 
-							}else{
-								echo "<br/><br/>";
-							}
-						?> 
+						
 						
 					<?php elseif($sidebar == "1" || $sidebar == "2"): ?>
 						<?php if($sidebar == "1") : ?>	
